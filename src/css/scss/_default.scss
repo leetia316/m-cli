@@ -1,0 +1,64 @@
+.cl:after, .cl:before {
+  content: "";
+  display: table
+}
+
+.cl:after {
+  clear: both
+}
+
+.left {
+  text-align: left !important;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.right {
+  text-align: right !important;
+}
+
+.fl {
+  float: left
+}
+
+.fr {
+  float: right
+}
+
+.nui-color {
+  &-white {
+    color: $color-white
+  }
+}
+
+@each $type, $color in (
+        default:$default-color,
+        success:$success-color,
+        primary: $primary-color,
+        warning:$warning-color,
+        error:$error-color,
+) {
+  .nui-bg-#{$type} {
+    background-color: $color;
+  }
+  .nui-color-#{$type} {
+    color: $color;
+  }
+}
+
+.nui-m {
+  &l {
+    margin-left: $margin-height;
+  }
+  &r {
+    margin-right: $margin-height;
+  }
+  &t {
+    margin-top: $margin-height;
+  }
+  &b {
+    margin-bottom: $margin-height;
+  }
+}

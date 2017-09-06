@@ -1,2 +1,5 @@
-# nui-mobile
-# nui-mobile
+## 组件
+
+ [ ] 按钮组件
+ [x] 上传组件
+ [x] 弹窗组件

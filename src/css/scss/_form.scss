@@ -1,0 +1,73 @@
+/* Form
+---------------------------------------------------------------- */
+.nui-btn {
+  border-radius: 4px;
+  border: 0;
+  box-sizing: border-box;
+  color: inherit;
+  display: block;
+  font-size: 17px;
+  height: 41px;
+  line-height: 41px;
+  outline: 0;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  appearance: none;
+
+  &::after {
+    background-color: #000;
+    content: " ";
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute
+  }
+
+  &:not(.is-disabled):active::after {
+    opacity: .4
+  }
+
+  &.is-disabled {
+    opacity: .6
+  }
+
+  &-icon {
+    vertical-align: middle;
+    display: inline-block
+  }
+  &#{&}--normal {
+    display: inline-block;
+    padding: 0 12px
+  }
+  &#{&}--small {
+    display: inline-block;
+    font-size: 14px;
+    padding: 0 12px;
+    height: 33px;
+    line-height: 33px;
+  }
+  & + & {
+    margin-top: $margin-height;
+  }
+}
+@each $type, $color in (
+        default:$default-color,
+        success:$success-color,
+        primary: $primary-color,
+        warning:$warning-color,
+        error:$error-color,
+) {
+  .nui-btn.nui-btn--#{$type} {
+    @if ($type == default) {
+      color: $color;
+      background-color: $btn-default-background-color;
+    } @else {
+      color: $color-white;
+      background-color: $color
+    }
+    box-shadow: 0 0 1px #b8bbbf
+  }
+}
